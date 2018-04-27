@@ -7,12 +7,10 @@ export const getRandomWoofDog = () => {
   });
 };
 
-export const getUkDog = (limit = 1) => {
-  let url = 'api.thedogapi.co.uk/v2/dog.php';
-  url = limit > 1 ? url + 'limit=' + limit : url;
+export const getUkDog = (limit) => {
   return axios({
     method: 'GET',
-    url
+    url: `https://api.thedogapi.co.uk/v2/dog.php?limit=${limit}`
   });
 };
 
@@ -33,9 +31,9 @@ export const getCEODogBreeds = () => {
 };
 
 export const getDogsForABreed = (breed) => {
-  let url = 'https://dog.ceo/api/breed/' + breed + '/images';
+  const url = `https://dog.ceo/api/breed/${breed}/images`;
   return axios({
     method: 'GET',
-    url: url
+    url
   });
 };
